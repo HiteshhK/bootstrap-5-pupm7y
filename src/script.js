@@ -94,7 +94,7 @@ function displayBooks(list, element) {
 
   list.forEach((book) => {
     htmlString += `
-    <div class="card">
+    <div class="card mb-2">
     <div class="card-header">${book.title}</div>
     <div class="card-body">
       <div><strong>Genre: </strong> ${book.genre}</div>
