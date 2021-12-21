@@ -58,52 +58,50 @@
       </nav>
     </header>
     <main>
-      <div class="container">
-        <div class="book-form">
-          <div class="mb-3">
-            <label for="nameInput" class="form-label">Title</label>
-            <input
-              type="text"
-              class="form-control"
-              id="book-title"
-              placeholder="Book Title"
-            />
-          </div>
-          <div class="mb-3">
-            <label for="GenreInput" class="form-label">Genre</label>
-            <input
-              type="text"
-              class="form-control"
-              id="book-genre"
-              placeholder="Enter Genre"
-            />
-          </div>
-          <div class="mb-3">
-            <label for="Book Price" class="form-label">Price</label>
-            <input
-              type="number"
-              class="form-control"
-              id="price"
-              min="0"
-              placeholder="Enter price in rs"
-            />
-          </div>
+      <section class="book-form mb-2">
+        <div class="mb-3">
+          <label for="nameInput" class="form-label">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="book-title"
+            placeholder="Book Title"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="GenreInput" class="form-label">Genre</label>
+          <input
+            type="text"
+            class="form-control"
+            id="book-genre"
+            placeholder="Enter Genre"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="Book Price" class="form-label">Price</label>
+          <input
+            type="email"
+            class="form-control"
+            id="price"
+            placeholder="Enter price in rs"
+          />
+        </div>
+        <div id = "form-action">
           <button class="btn btn-primary" type="button" onclick="addBook()">
-            Add Book
+            Save Book
           </button>
         </div>
-
-        <div class="row">
-          <div class="col-12 col-md-6">
-            <h2>Books</h2>
-            <ul id="bookList"></ul>
-          </div>
-          <div class="col-12 col-md-6">
-            <h2>Favourites</h2>
-            <ul id="favouritesList"></ul>
-          </div>
+      </section>
+      <section class="books">
+        <div>
+          <h2>Books</h2>
+          <div id="bookList"></div>
         </div>
-      </div>
+        <div>
+          <h2>Favourite Books</h2>
+          <div id="favouritesList"></div>
+        </div>
+      </section>
     </main>
     <footer>
       <section></section>
