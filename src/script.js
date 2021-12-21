@@ -86,9 +86,9 @@ function displayBooks(list, element) {
 			      <div>${book.genre}</div>
 			      <div>${book.price}</div>
             <div class="actions">
-              <span>Likes : ${book.likes}</span>`;
+              <span id="${book.id}-likes">Likes : ${book.likes}</span>`;
     if (element === 'bookList') {
-      htmlString += `<div><button class="btn btn-primary" onclick="addFavourite(${book.id})">Add to favourites</button></div>`;
+      htmlString += `<div class="actions"><button class="btn btn-primary" onclick="addFavourite(${book.id})">Add to favourites</button><button onclick="likeBook(${book.id})">Like</button></div>`;
     }
     htmlString += `</div></li>`;
   });
@@ -132,6 +132,37 @@ function addBook() {
   bookList.push(book);
   displayBooks(bookList, 'bookList');
   return bookList;
+}
+
+likeBook = (id) => {
+  let book = bookList.find((book) => book.id === id);
+  book['likes'] = book['likes'] + 1;
+  updateBook(book, (update) => {
+    if (update.status === 'SUCCESS') {
+      let likeLabel = document.getElementById(`${id}-likes`);
+      likeLabel.textContent = book['likes'];
+    }
+  });
+};
+
+function updateBook(book, update) {
+  // return fetch(`http://localhost:3000/books`, {
+  //       method: 'PUT',
+  //       headers: {
+  //         'content-type': 'application/json',
+  //       },
+  //       body: JSON.stringify(book),
+  //     })
+  //       .then((response) => {
+  //         if (response.ok) {
+  //           return response.json();
+  //         }
+  //       })
+  //       .then((book) => {
+  //         update('SUCCESS');
+  //         return book;
+  //       });
+  update('SUCCESS');
 }
 
 module.exports = {
